@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-end Frameworks</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/poly.css">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="SHORT ICON" href="https://fpt123.net/uploads/images/icon/blue.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="js/doTestCtrl.js"></script>
+</head>
+<body ng-controller="myController">
+  <section class="row">
+    <article class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-10">
+              <span class="font-weight-bold">{{tenMonHoc}}</span>
+            </div>
+            <div class="col-sm-2">
+              <span class="badge badge-pill badge-primary">{{time}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div ng-repeat="q in ADAV|limitTo:1:begin">
+            <div class="alert alert-info">{{begin+1}}. {{q.Text}}</div>
+            <div ng-repeat="a in q.Answers">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" ng-model="q.dapan" name="{{q.Id}}" value="{{a.Id}}" />
+                <label class="form-check-label">{{a.Text}} </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer font-weight-bold">
+          <!-- <input type="button" value="|<" ng-click="first()"> -->
+          <input type="button" value="<" ng-click="prev()">
+          <input type="button" value=">" ng-click="next()">
+          <!-- <input type="button" value=">|" ng-click="last()"> -->
+          Tổng Điểm:{{tinhdiem()}}
+        </div>
+      </div>
+    </article>
+  </section>
+  </div>
+</body>
+</html>

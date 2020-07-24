@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-end Frameworks</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/poly.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="SHORT ICON" href="https://fpt123.net/uploads/images/icon/blue.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/doTestCtrl.js"></script>   
+</head>
+<body ng-controller="myController">
+  <div class="container">
+    <header class="row">
+      <img src="images/banner.png" class="w-100">
+    </header>
+    <nav class=" row navbar navbar-expand-lg navbar-dark bg-dark" ng-include="'nav.html'">   
+    </nav>
+    <section class="row">
+      <article class="col-sm-9">
+        <div class="mt-5">
+          <ng-view></ng-view>
+        </div>
+      </article>
+      <aside class="col-sm-3" ng-include="'aside.html'"></aside>
+    </section>
+    <footer class="row mt-3" ng-include="'footer.html'"></footer>
+  </div>
+</body>
+</html>

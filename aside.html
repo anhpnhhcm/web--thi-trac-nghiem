@@ -1,0 +1,8 @@
+<div class="card mt-3">
+    <div class="card-header"><i class="fas fa-briefcase"></i>DANH SÁCH MÔN HỌC</div>
+    <div class="card-body p-0">
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="x in subjects"><a href="#!doTest/{{x.Name}}/{{x.Id}}"><img width="10%" src="images/logos/{{x.Logo}}">{{x.Name}}</a></li>
+      </ul>
+    </div>
+  </div>

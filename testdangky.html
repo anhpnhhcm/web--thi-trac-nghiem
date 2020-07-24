@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-end Frameworks</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/poly.css">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="SHORT ICON" href="https://fpt123.net/uploads/images/icon/blue.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script>
+    var app = angular.module("myApp", ["ngRoute"]);
+        app.controller('myController', function ($scope, $http, $rootScope) {
+            $http.get('../db/Students.js').then(function (response) {
+                $rootScope.students = response.data;
+            });
+            $http.get('../db/Students.js').then(function (response) {
+                $rootScope.students = response.data;
+            });
+            $rootScope.student = {};
+            $rootScope.index = -1;
+            $scope.insert = function () {
+                $rootScope.students.push(angular.copy($rootScope.student));
+            Swal.fire(
+                    'Thành công',
+                    'Thêm mới thành công!',
+                    'success'
+                    )
+        }
+            $scope.update = function () {
+                $scope.students[$scope.index] = angular.copy($scope.student);
+            }
+            $scope.delete = function(){
+                $scope.students.splice($scope.index,1);
+                $scope.clear();
+            }
+            $scope.clear = function(){
+                $scope.student = {};
+                $scope.index = -1;
+            }
+            $scope.edit = function (index) {
+                $scope.index = index;
+                $scope.student = angular.copy($scope.students[index]);
+            }
+        });
+  </script>
+</head>
+
+<body ng-controller="myController">
+  <div class="container">
+    <header class="row">
+      <img src="images/banner.png" class="w-100">
+    </header>
+    <nav class=" row navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i>FPT Polytechnic<span
+                class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Gioithieu.html"><i class="fas fa-list-ul"></i>Giới thiệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="lienhe.html"><i class="fas fa-phone-alt"></i>Liên hệ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-envelope"></i>Góp ý</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-question"></i>Hồi đáp</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>
+            Tài Khoản
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="dangky.html">Đăng ký</a>
+            <a class="dropdown-item" href="login.html">Đăng nhập</a>
+            <a class="dropdown-item" href="quenmatkhau.html">Quên mật khẩu</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="login.html">Đăng xuất</a>
+            <a class="dropdown-item" href="forgetpass.html">Đổi mật khẩu</a>
+            <a class="dropdown-item" href="updatetk.html">Cập nhật tài khoản</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <section>
+      <article>
+        <form name="FrmSub">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Họ và tên</label>
+                    <input type="text" class="form-control" ng-model="student.fullname" name="hoTen" required/>
+                    <span ng-hide="FrmSub.hoTen.$valid" class="text-danger font-italic">Vui lòng nhập Họ và tên</span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Tài khoản</label>
+                    <input type="text" class="form-control" ng-model="student.username" name="user" required/>
+                    <span ng-hide="FrmSub.user.$valid" class="text-danger font-italic">Vui lòng nhập Tài khoản</span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Mật khẩu</label>
+                    <input type="password" class="form-control" ng-model="student.password" name="pass" required/>
+                    <span ng-hide="FrmSub.pass.$valid" class="text-danger font-italic">Vui lòng nhập Mật khẩu</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Email</label>
+                    <input type="email" class="form-control" ng-model="student.email" name="email" required/>
+                    <span ng-hide="FrmSub.email.$valid" class="text-danger font-italic">Email không đúng định dạng</span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Giới tính</label>
+                    <br>
+                    <div class="form-check-inline">
+                       <input type="radio" class="form-check-input" ng-model="student.gender" value="true">
+                       <label>Nam</label>
+                       <input type="radio" class="form-check-input" ng-model="student.gender" value="false">
+                       <label>Nữ</label>
+                      </div>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Ngày sinh</label>
+                    <input class="form-control" ng-model="student.birthday" name="date" required/>
+                    <span ng-hide="FrmSub.date.$valid" class="text-danger font-italic">Vui lòng nhập ngày sinh</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-info" ng-click="insert()">Đăng ký</button>
+            </div>
+        </form>
+      </article>
+    </section>
+    <footer class="row mt-3">
+      <p class="m-auto text-center">Phạm Nguyễn Hoàng Anh &copy; 2020. All rights reserved </p>
+    </footer>
+  </div>
+</body>
+
+</html>

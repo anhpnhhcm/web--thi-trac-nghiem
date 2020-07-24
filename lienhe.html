@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-end Frameworks</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/poly.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="SHORT ICON" href="https://fpt123.net/uploads/images/icon/blue.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function ($scope, $http) {
+
+        });
+    </script>
+</head>
+
+<body ng-controller="myController">
+        <section>
+            <article>
+                <div class=" row mt-4">
+                    <div class="col-sm-4">
+                        <p>Để liên hệ quảng cáo hoặc cập nhật thông tin hãy điện thông tin vào form dưới đây.</p>
+
+                        <div class="form-group" data-example-id="basic-forms">
+                            <form action="https://ngan-hang.com/contact" class="contact-form"
+                                enctype="multipart/form-data" method="post" accept-charset="utf-8">
+
+                                <input type="text" name="d0ntf1llth1s1n" value=" " class="default-form"
+                                    style="display:none" />
+                                <div class="form-group"><label for="name">Họ Tên</label> <input type="text" name="name"
+                                        value="" id="contact_name" class="name form-control" />
+                                </div>
+
+                                <div class="form-group"><label for="email">Email</label><input type="text" name="email"
+                                        value="" id="contact_email" class="email form-control" />
+                                </div>
+
+                                <div class="form-group"><label for="subject">Tiêu đề</label><input type="text"
+                                        name="subject" value="" id="contact_subject" class="subject form-control" />
+                                </div>
+
+                                <div class="form-group"><label for="message">Nội Dung</label><textarea name="message"
+                                        cols="40" rows="10" id="contact_message"
+                                        class="message form-control"></textarea>
+                                </div>
+
+                                <span class="contact-button"><input type="submit" name="contact-submit" value="Submit"
+                                        class="btn btn-primary" />
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                    <div class=" col-sm-8">
+                        <iframe style="width: 100%; height: 400px;"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2398.525070479796!2d106.67943840498344!3d10.812272124067336!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528dfcf546de7%3A0xf872809fb8deded!2sFPT+Polytechnic+Colleges+(CS2)!5e0!3m2!1sen!2s!4v1551921483168"
+                            width="600" height="650" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+</body>
+
+</html>
